@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>C Programming Language Output this code Quizzes 1</title>
+    
+      <link rel="stylesheet" type="text/css" href="../static_dir/css/style.css" />
+                
+ 
+    <script src="http://www.fastlearning.in/controller/js/jquery-1.9.1.min.js"></script>
+    
+     <script type="text/javascript">
+	$(document).ready(function() {
+	    $('label').click(function() {
+	        $('label').removeClass('worngans');
+	        $(this).addClass('worngans');
+	    });
+	});
+	</script>
+   
+    
+   </head>
+<body >
+	<div class="scp-quizzes-main">
+	<div class="scp-quizzes-data">
+	  <h3>{{problem}}</h3>
+	  <br/>
+	    <input type="radio" id="Fastlearning" name="question1">
+	       <label for="Fastlearning">1. {{ca}}</label><br/>
+	    <input type="radio"  name="question1">
+	       <label>2. {{cw1}}</label><br/>
+	    <input type="radio" name="question1">
+	       <label>3. {{cw2}}</label> <br/>
+	    <input type="radio" name="question1">
+	     <label>4. {{cw3}}</label> 
+	 </div>
+	</div>
+</body>
+</html>

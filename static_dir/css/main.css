@@ -1,0 +1,98 @@
+body{
+	background: url(https://images.unsplash.com/photo-1558834642-4aac34e9ff44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1870&q=80);
+	background-size: cover;
+	background-position: center;
+	font-family: Roboto;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+h1 {
+	/*background: #2980b9;*/
+	background: #f99922;
+	color: white;
+	margin: 0;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.fa-plus {
+	float: right;
+}
+
+/*li a {
+	background: #fff;
+	height: 60px;
+	line-height: 40px;
+	color: #666;
+}
+
+li:nth-child(2n){
+	background: #f7f7f7;
+}*/
+
+li span {
+	background: #e74c3c;
+	height: 40px;
+	margin-right: 20px;
+	text-align: center;
+	color: white;
+	width: 0;
+	display: inline-block;
+	transition: 0.2s linear;
+	opacity: 0;
+}
+
+li:hover span {
+	width: 40px;
+	opacity: 1.0;
+}
+
+input {
+	font-size: 18px;
+	color: #2980b9;
+	background-color: #f7f7f7;
+	width: 100%;
+	padding: 13px 13px 13px 20px;
+	box-sizing: border-box;
+	border: 3px solid rgba(0,0,0,0);
+}
+
+input:focus{
+	background: #fff;
+	border: 3px solid #2980b9;
+	outline: none;
+}
+
+#box {
+	align-content: center;
+	width: 360px;
+	margin: 100px auto;
+	/*background: #f7f7f7;*/
+	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+}
+
+.main_item {
+	color: white;
+	font-size: x-large;
+	/*font-weight: bold;*/
+}
+
+.completed {
+	color: gray;
+	text-decoration: line-through;
+}
+
+
+button{
+	align-items: center;
+}
