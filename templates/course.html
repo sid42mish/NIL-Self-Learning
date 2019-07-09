@@ -41,19 +41,21 @@
 
 <h1>
 <div class="container">
-  <li><a  class ="main_item" href="">Preview Course</a></li>
+  <li><a  class ="main_item" href="{{cn}}/preview-course">Preview Course</a></li>
   
 </div>
 <br>
 <div class="container">
-  <li><a  class ="main_item" href="">Set Dependencies</a></li>
+  <li><a  class ="main_item" href="set-dependencies/{{cn}}">Set Dependencies</a></li>
 </div>
 <div id="box">
-  <ul id="topiclist">
+  <h3 >
+    <ul id="topiclist">
       {% for key in msg %}
-        <li style="font-size:20px height: 50px; line-height: 10px;" name="{{key}}" value="{{cn}}"><span><i class="fa fa-trash"></i></span><a style="font: serif;" class ="main_item" href="/problem/{{ key |replace(' ', '-') }}">{{ key }}</a></li>
+        <li style="font-size:20px; height: 50px; line-height: 10px;" name="{{key}}" value="{{cn}}"><span><i class="fa fa-trash"></i></span><a style="font: serif ; color: black" class ="main_item" href="/problem/{{ key |replace(' ', '-') }}">{{ key }}</a></li>
       {% endfor %}
-  </ul>
+    </ul>
+  </h3>
 </div>
 <div class="container">
   <button class="btn btn-primary dropbtn">Add New Question</button>

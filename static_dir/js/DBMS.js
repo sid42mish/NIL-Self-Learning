@@ -26,7 +26,7 @@ $("ul").on("click", "span", function(event){
 			    }
 			});
 		});
-	
-		event.stopPropagation();
 	}
+	event.stopPropagation();
+	
 });

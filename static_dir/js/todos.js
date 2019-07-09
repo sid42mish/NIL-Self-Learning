@@ -6,7 +6,7 @@
 //Click on X to delete Todo
 
 $("ul").on("click", "span", function(event){
-	var result = confirm("Are you sure you want to delete?");
+	var result = confirm("Are you sure you want to delete the problem?");
 	if (result) {
 		$(this).parent().fadeOut(500,function(){
 			var todoText = (this).attributes[0].value;
@@ -23,8 +23,9 @@ $("ul").on("click", "span", function(event){
 			});
 		});
 	
-		event.stopPropagation();
 	}
+	event.stopPropagation();
+	
 });
 
 $("input[type='text']").keypress(function(event){

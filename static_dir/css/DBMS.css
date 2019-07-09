@@ -1,14 +1,16 @@
+
 body{
 	background: url("./page-2.jpg");
-	background-size: all;
-	background-position: top;
-	font-family: Roboto;
+	background-position: center;
+    background-size: cover;
+    font-family: Roboto;
 }
 
 ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+  color: white
 }
 
 
@@ -30,12 +32,12 @@ h1 {
 	float: right;
 }
 
-/*li a {
-	background: #fff;
+li a {
 	height: 60px;
 	line-height: 40px;
-	color: #666;
+	color: aqua;
 }
+/*
 li:nth-child(2n){
 	background: #f7f7f7;
 }

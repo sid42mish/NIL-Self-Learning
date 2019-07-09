@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home | NIL-SL</title>
+   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='../static_dir/css/style.css') }}" >
+    
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+  <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/lib/jquery-2.1.4.min.js') }}"></script>
+  <script src="http://www.fastlearning.in/controller/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('label').click(function() {
+          console.log(this)
+          $('label').removeClass('worngans');
+          $(this).addClass('worngans');
+          if(this.attributes[0].value=="Fastlearning"){
+            const Url= '/course/{{name}}/preview-course',
+            var id=1;
+            $.post(Url,id,function(id){
+              
+            });
+         }
+          else{
+           url: '/course/{{name}}/preview-course?id=0',
+            type: 'POST',
+          }
+   
+      });
+  });
+  </script>
+
+
+  <!-- <script type="text/javascript" >
+     function preventBack(){window.history.forward();}
+      setTimeout("preventBack()", 0);
+      window.onunload=function(){null};
+  </script>
+ -->
+  <!-- <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/lib/jquery-2.1.4.min.js') }}"></script> -->
+</head>
+
+
+
+<body >
+<nav class="navbar navbar-inverse">
+  <div class="container">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <a class="navbar-brand" href="#">Snow/TDS</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="/entry">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+	<h1>Preview Course {{name | replace('-',' ')}}</h1>
+</div>
+  <div class="scp-quizzes-main">
+    <div class="scp-quizzes-data">
+      <h3>{{problem}}</h3>
+      <br/>
+        <input type="radio" id="Fastlearning" name="question1">
+          <label for="Fastlearning">1. {{ca}}</label><br/>
+        <input type="radio"  name="question1">
+          <label>2. {{cw1}}</label><br/>
+        <input type="radio" name="question1">
+          <label>3. {{cw2}}</label> <br/>
+        <input type="radio" name="question1">
+          <label>4. {{cw3}}</label> 
+     </div>
+    </div>
+
+<div class="container">
+    <form method="post" action="/course/{{name}}/preview-course">
+      <button type="submit">Next</button>
+    </form>
+    <br />
+</div>
+
+
+<!-- <script type="text/javascript" src="../static_dir/js/todos.js"></script> -->
+<script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/todos.js') }}"></script>
+</body>
+</html>
