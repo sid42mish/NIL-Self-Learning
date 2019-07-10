@@ -220,39 +220,42 @@ def preview(variable):
 	bucket.append([])
 	bucket.append([])
 	bucket.append([])
+	bucket.append([])
 	return render_template("preview.html",name=variable,problem=cid[2], ca=cid[3], cw1=cid[4], cw2=cid[5], cw3=cid[6])
 
 @app.route("/course/<variable>/preview-course", methods=["POST"])
 def prev_pos(variable):
 	c_name=variable.replace('-',' ')
 	print("*********************************************")
-	print (bucket)
-	wrong=request.args.get('id')
+	wrong = request.form['mcq']
 	print(wrong)
-	if(wrong==0):
-		bucket[0].append(pre[1])
+	if wrong!='ca':
+		bucket[0].append(pre[0])
 	else:
-		bucket[pre[0]+1].append(pre[1])
+		bucket[pre[1]+1].append(pre[0])
 	pre.clear()
 	if(len(bucket[0])==0 and len(bucket[1])==0 and len(bucket[2])==0 and len(bucket[3])==0):
 		return render_template("course_end.html",x="Congratulations! Course Ended.")
 	ra=random.randint(0,3)
 	while(len(bucket[ra])==0):
 		ra=(ra+1)%4
-	pre.append(ra);
 	ra1=random.randint(0,len(bucket[ra])-1)
 	pre.append(bucket[ra][ra1])
+	pre.append(ra);
 	
-
 	cid=[]
-	el=pre[1]
+	el=pre[0]
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
 		cur.execute("SELECT * FROM problem WHERE problem_id= (?)",[el])
 		cid= (cur.fetchone())
 		con.commit()
+	print ("cid")
+	print (cid)
 	con.close()	
 	bucket[ra].remove(el)
+	print (bucket)
+	
 	return render_template("preview.html",name=variable,problem=cid[2], ca=cid[3], cw1=cid[4], cw2=cid[5], cw3=cid[6])
 
 

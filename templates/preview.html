@@ -10,28 +10,7 @@
 
   <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/lib/jquery-2.1.4.min.js') }}"></script>
   <script src="http://www.fastlearning.in/controller/js/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('label').click(function() {
-          console.log(this)
-          $('label').removeClass('worngans');
-          $(this).addClass('worngans');
-          if(this.attributes[0].value=="Fastlearning"){
-            const Url= '/course/{{name}}/preview-course',
-            var id=1;
-            $.post(Url,id,function(id){
-              
-            });
-         }
-          else{
-           url: '/course/{{name}}/preview-course?id=0',
-            type: 'POST',
-          }
-   
-      });
-  });
-  </script>
-
+  
 
   <!-- <script type="text/javascript" >
      function preventBack(){window.history.forward();}
@@ -68,22 +47,21 @@
   <div class="scp-quizzes-main">
     <div class="scp-quizzes-data">
       <h3>{{problem}}</h3>
-      <br/>
-        <input type="radio" id="Fastlearning" name="question1">
-          <label for="Fastlearning">1. {{ca}}</label><br/>
-        <input type="radio"  name="question1">
-          <label>2. {{cw1}}</label><br/>
-        <input type="radio" name="question1">
-          <label>3. {{cw2}}</label> <br/>
-        <input type="radio" name="question1">
-          <label>4. {{cw3}}</label> 
-     </div>
-    </div>
+      <br/> 
+        <form method="POST" >
+          <input type="radio" name="mcq" value="ca">{{ca}}<br>
+          <input type="radio" name="mcq" value="cw1">{{cw1}}<br>
+          <input type="radio" name="mcq" value="cw2">{{cw2}}<br>
+          <input type="radio" name="mcq" value="cw3">{{cw3}}<br>
+
+          <input type="submit" value="Submit">
+
+        </form>
+  
+  </div>
+</div>
 
 <div class="container">
-    <form method="post" action="/course/{{name}}/preview-course">
-      <button type="submit">Next</button>
-    </form>
     <br />
 </div>
 
