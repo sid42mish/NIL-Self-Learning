@@ -2,10 +2,14 @@
 <html>
 <head>
 <title>Home | NIL-SL</title>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <!-- <link rel="stylesheet" type="text/css" href="../static_dir/css/dependancy.css"> -->
-  <link rel="stylesheet"  href="{{url_for('static',filename='../static_dir/css/dependancy.css') }}">
+ <link rel="stylesheet"  href="{{url_for('static',filename='../static_dir/css/dependancy.css') }}">
+
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <!-- <script type="text/javascript" src="../static_dir/js/lib/jquery-2.1.4.min.js"></script> -->
@@ -33,20 +37,20 @@
 
 <div id="box">
   <h3 >
+    {% for key in msg %}
+    {{key}}
+          
     <ul id="topiclist">
-      {% for key in msg %}
-        {{key}}  
-         
-          <div class="element-wrapper">
+       	  <div class="element-wrapper">
 	          <div class="row">
 
 	      		<!-- INPUT -->
 		          <select>
-		            <option value="none" autofocus>None</option>
+		          <option value="none" autofocus>None</option>
 		            {% for key in msg %}
 		              <option value={{key}}>{{key}}</option>
-		            {% endfor %}
-		          </select>
+					{% endfor %}
+				  </select>
 
 		          <input type="submit" value="Add">
 
@@ -55,11 +59,12 @@
       	  </div>
 
           <button class="btn-add-row">Add New Row</button>
-      {% endfor %}
+      
     </ul>
+    {% endfor %}
   </h3>
 </div>
 <!-- <script type="text/javascript" src="../static_dir/js/dependency.js"></script> -->
-<script type="text/javascript" src="{{url_for('static',filename='static_dir/js/dependency.js') }}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/dependency.js') }}"></script>
 </body>
 </html>

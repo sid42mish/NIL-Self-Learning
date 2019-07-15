@@ -1,6 +1,7 @@
 // create new row
 $(document).on("click", ".btn-add-row", function(){
     // clone row class element index 0
+    console.log("adding new row")
     var row = $(".row").eq(0).clone().show();
     console.log(row);
     // append row clone to elemt-wraper
