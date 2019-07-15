@@ -207,6 +207,15 @@ def preview(variable):
 	ci.clear()
 	print("coursname-->"+c_name)
 	bucket.clear()
+
+	with sql.connect("hack.db") as con:
+		cur=con.cursor()
+		cur.execute("delete from bucket1")
+		cur.execute("delete from bucket2")
+		cur.execute("delete from bucket3")
+		cur.execute("delete from bucket4")
+		cur.execute("INSERT INTO bucket1 select problem_id, course_id from problem")
+	con.close()
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
 		cur.execute("select distinct problem_id from bucket1 join course on course.course_id=bucket1.course_id where course_name= (?)",[c_name])

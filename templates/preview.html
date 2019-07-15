@@ -29,7 +29,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <a class="navbar-brand" href="#">Snow/TDS</a>
+      <a class="navbar-brand" href="/course/{{name}}">Snow/TDS</a>
       <ul class="nav navbar-nav navbar-right">
         <li ><a href="/entry">Home</a></li>
         <li><a href="">About</a></li>
@@ -48,13 +48,13 @@
     <div class="scp-quizzes-data">
       <h3>{{problem}}</h3>
       <br/> 
-        <form method="POST" >
+        <form id="form" method="POST" >
           <input type="radio" name="mcq" value="ca">{{ca}}<br>
           <input type="radio" name="mcq" value="cw1">{{cw1}}<br>
           <input type="radio" name="mcq" value="cw2">{{cw2}}<br>
           <input type="radio" name="mcq" value="cw3">{{cw3}}<br>
 
-          <input type="submit" value="Submit">
+          <input id="btnSubmit" type="submit" value="Submit">
 
         </form>
   
@@ -67,6 +67,6 @@
 
 
 <!-- <script type="text/javascript" src="../static_dir/js/todos.js"></script> -->
-<script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/todos.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/preview.js') }}"></script>
 </body>
 </html>
