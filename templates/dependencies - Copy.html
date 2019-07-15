@@ -34,18 +34,16 @@
 <div id="box">
   <h3 >
     <ul id="topiclist">
-      {% for key in msg %}
-        {{key}}  
+      
+       
          
           <div class="element-wrapper">
 	          <div class="row">
 
 	      		<!-- INPUT -->
 		          <select>
-		            <option value="none" autofocus>None</option>
-		            {% for key in msg %}
-		              <option value={{key}}>{{key}}</option>
-		            {% endfor %}
+		            <input type="text" name="text">
+		            
 		          </select>
 
 		          <input type="submit" value="Add">
@@ -61,7 +59,7 @@
         
 
 
-      {% endfor %}
+      
     </ul>
   </h3>
 </div>
