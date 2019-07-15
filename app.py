@@ -2,7 +2,17 @@ from flask import Flask, render_template, request, redirect, jsonify
 import random
 import sqlite3 as sql
 app = Flask(__name__, static_folder="static_dir")
-
+def resetdb():
+	with sql.connect("hack.db") as con:
+		cur=con.cursor()
+		cur.execute("delete from bucket1")
+		cur.execute("delete from bucket2")
+		cur.execute("delete from savedata")
+		cur.execute("delete from bucket3")
+		cur.execute("delete from bucket4")
+		cur.execute("INSERT INTO bucket1 select problem_id, course_id from problem")
+	con.close()
+resetdb()
 
 @app.route("/entry", methods=["GET"])
 def fun_get():
@@ -201,6 +211,9 @@ def display(variable):
 ci=[]
 pre=[]
 bucket=[[]]
+
+
+
 @app.route("/course/<variable>/preview-course", methods=["GET"])
 def preview(variable):
 	c_name=variable.replace('-',' ')
@@ -208,14 +221,8 @@ def preview(variable):
 	print("coursname-->"+c_name)
 	bucket.clear()
 
-	with sql.connect("hack.db") as con:
-		cur=con.cursor()
-		cur.execute("delete from bucket1")
-		cur.execute("delete from bucket2")
-		cur.execute("delete from bucket3")
-		cur.execute("delete from bucket4")
-		cur.execute("INSERT INTO bucket1 select problem_id, course_id from problem")
-	con.close()
+#	resetdb()
+	
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
 		cur.execute("select distinct problem_id from bucket1 join course on course.course_id=bucket1.course_id where course_name= (?)",[c_name])
@@ -260,38 +267,34 @@ def preview(variable):
 			con.commit()
 		con.close()
 		f=1
-		bucket[0].remove(bucket[0][0])
 	elif (len(bucket[1])!=0):
 		pre.append(bucket[1][0])
 		pre.append(1)
 		with sql.connect("hack.db") as con:
 			cur=con.cursor()
-			cur.execute("delete from bucket2 where problem_id=(?)",[bucket[0][0]])
+			cur.execute("delete from bucket2 where problem_id=(?)",[bucket[1][0]])
 			con.commit()
 		con.close()
 		f=1
-		bucket[1].remove(bucket[0][0])
 	elif (len(bucket[0])!=0):
 		pre.append(bucket[2][0])
 		pre.append(2)
 		with sql.connect("hack.db") as con:
 			cur=con.cursor()
-			cur.execute("delete from bucket3 where problem_id=(?)",[bucket[0][0]])
+			cur.execute("delete from bucket3 where problem_id=(?)",[bucket[2][0]])
 			con.commit()
 		con.close()
 		f=1
-		bucket[2].remove(bucket[2][0])
 	elif (len(bucket[0])!=0):
 		pre.append(bucket[3][0])
 		pre.append(3)
 		with sql.connect("hack.db") as con:
 			cur=con.cursor()
-			cur.execute("delete from bucket4 where problem_id=(?)",[bucket[0][0]])
+			cur.execute("delete from bucket4 where problem_id=(?)",[bucket[3][0]])
 			con.commit()
 		con.close()
 		f=1
-		bucket[3].remove(bucket[3][0])
-
+	
 	if (f==0):
 		return render_template("course_end.html",x="Congratulations! Course Ended.")
 
@@ -300,21 +303,51 @@ def preview(variable):
 		cur=con.cursor()
 		cur.execute("select * from problem where problem_id=(?)",[pre[0]])
 		cid=list(cur.fetchone())
+		ra=pre[1]
+		el=pre[0]
+		cur.execute("DELETE FROM savedata")
+		cur.execute("INSERT into savedata VALUES (?,?)",(ra,el))	
 		con.commit()
 	con.close()		
-	
+	print (bucket)
+
 	return render_template("preview.html",name=variable,problem=cid[2], ca=cid[3], cw1=cid[4], cw2=cid[5], cw3=cid[6])
 
 @app.route("/course/<variable>/preview-course", methods=["POST"])
 def prev_pos(variable):
 	c_name=variable.replace('-',' ')
 	c_id=0;
-	with sql.connect("hack.db") as con:
+	print (bucket)
+	with sql.connect("hack.db") as con:			#finding the course
 		cur=con.cursor()
 		cur.execute("select course_id from course where course_name=(?)",[c_name])
 		c_id=(cur.fetchone()[0])
 		con.commit()
-	con.close()	
+	con.close()
+	with sql.connect("hack.db") as con:
+		cur=con.cursor()
+		cur.execute("select * from savedata")
+		fu=list(cur.fetchone())
+		ra=fu[0]
+		el=fu[1]
+		print (fu)
+		bucket[ra].remove(el)
+		con.commit()
+	con.close()
+
+	with sql.connect("hack.db") as con:
+		cur=con.cursor()
+		if (ra==0):
+			cur.execute("DELETE FROM bucket1 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
+		if (ra==1):
+			cur.execute("DELETE FROM bucket2 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
+		if (ra==2):
+			cur.execute("DELETE FROM bucket3 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
+		if (ra==3):
+			cur.execute("DELETE FROM bucket4 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
+		con.commit()
+	con.close()
+
 	print("*********************************************")
 	print (bucket)
 	print(pre)
@@ -358,24 +391,15 @@ def prev_pos(variable):
 		cur=con.cursor()
 		cur.execute("SELECT * FROM problem WHERE problem_id= (?)",[el])
 		cid= (cur.fetchone())
+		cur.execute("DELETE FROM savedata")
+		cur.execute("INSERT into savedata VALUES (?,?)",(ra,el))	
 		con.commit()
 	con.close()	
-	bucket[ra].remove(el)
-	with sql.connect("hack.db") as con:
-		cur=con.cursor()
-		if (ra==0):
-			cur.execute("DELETE FROM bucket1 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
-		if (ra==1):
-			cur.execute("DELETE FROM bucket2 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
-		if (ra==2):
-			cur.execute("DELETE FROM bucket3 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
-		if (ra==3):
-			cur.execute("DELETE FROM bucket4 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
-		con.commit()
-	con.close()
+	
 	print (bucket)
 	
 	return render_template("preview.html",name=variable,problem=cid[2], ca=cid[3], cw1=cid[4], cw2=cid[5], cw3=cid[6])
+
 
 
 @app.route("/course/set-dependencies/<variable>", methods=["GET"])
