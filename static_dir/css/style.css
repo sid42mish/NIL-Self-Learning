@@ -6,6 +6,11 @@ body{
     font-family: Roboto;
 }
 
+.answers {
+    padding: 20px 4px;
+    border: 2px;
+}
+
 #frame {
     max-width:  100%;
 }

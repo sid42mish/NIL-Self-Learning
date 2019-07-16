@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Home | NIL-SL</title>
-   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='../static_dir/css/style.css') }}" >
+   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+ 	<link rel="stylesheet"  href="{{url_for('static',filename='../static_dir/css/style.css') }}">
     
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -42,22 +43,26 @@
 
 
 <div class="container">
-	<h1>Preview Course {{name | replace('-',' ')}}</h1>
+	<h1>Preview Course bla {{name | replace('-',' ')}}</h1>
 </div>
+  
+<div class="container">
   <div class="scp-quizzes-main">
     <div class="scp-quizzes-data">
-      <h3>{{problem}}</h3>
+      <h3>Question : {{problem}}</h3>
       <br/> 
+      <ul style="list-style: none;">
         <form id="form" method="POST" >
-          <input type="radio" name="mcq" value="ca">{{ca}}<br>
-          <input type="radio" name="mcq" value="cw1">{{cw1}}<br>
-          <input type="radio" name="mcq" value="cw2">{{cw2}}<br>
-          <input type="radio" name="mcq" value="cw3">{{cw3}}<br>
+          <div class="answers" ><li><input type="radio" name="mcq" value="ca">{{ca}}<br></li></div>
+          <div class="answers"><li><input type="radio" name="mcq" value="cw1">{{cw1}}<br></li></div>
+          <div class="answers"><li><input type="radio" name="mcq" value="cw2">{{cw2}}<br></li></div>
+          <div class="answers"><li><input type="radio" name="mcq" value="cw3">{{cw3}}<br></li></div>
 
-          <input id="btnSubmit" type="submit" value="Submit">
+          <div class="answers"><input id="btnSubmit" type="submit" value="Submit"></div>
 
         </form>
-  
+  	  </ul>
+  	</div>
   </div>
 </div>
 
