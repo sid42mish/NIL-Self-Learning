@@ -35,34 +35,42 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div id="box">
-  <h3 >
-    {% for key in msg %}
-    {{key}}
-          
-    <ul id="topiclist">
+
+<div class="container">
+  <h1><strong>Set Dependencies for :</strong></h1>
+</div> 
+<br><br>
+
+<div class="container">
+  
+  
+    <h3>{% for key in msg %}
+    {{key}}</h3>
+    
+    <h4><ul id="topiclist">
        	  <div class="element-wrapper">
 	          <div class="row">
 
 	      		<!-- INPUT -->
 		          <select>
-		          <option value="none" autofocus>None</option>
-		            {% for key in msg %}
-		              <option value={{key}}>{{key}}</option>
-					{% endfor %}
-				  </select>
+  		          <option value="none" autofocus>None</option>
+  		            {% for key in msg %}
+  		          <option value={{key}}>{{key}}</option>
+      				    {% endfor %}
+    				  </select>
 
 		          <input type="submit" value="Add">
 
-		          <button class="btn-remove-row">Remove Row</button>
+		          <button class="btn-remove-row">Remove question</button>
 	          </div>
       	  </div>
 
-          <button class="btn-add-row">Add New Row</button>
+          <button class="btn-add-row">Add another question</button>
+          <br><br>
       
     </ul>
-    {% endfor %}
-  </h3>
+    <h3>{% endfor %}</h3>
+  </h4>
 </div>
 <!-- <script type="text/javascript" src="../static_dir/js/dependency.js"></script> -->
   <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/dependency.js') }}"></script>

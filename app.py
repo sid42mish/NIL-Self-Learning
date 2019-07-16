@@ -2,6 +2,11 @@ from flask import Flask, render_template, request, redirect, jsonify
 import random
 import sqlite3 as sql
 app = Flask(__name__, static_folder="static_dir")
+
+# # debug mode on
+# if __name__ == "__main__":
+# 	app.run(debug=True)
+
 def resetdb():
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
