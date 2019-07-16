@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+
+=======
 // correct answer
+>>>>>>> 25b0026bb6bb5287ca3322f915f9f6a7be3a244f
 $(document).ready(fuction(){
 	$('#btnSubmit').click(function(){
 		var result = $('input[type="radio"]:checked');
