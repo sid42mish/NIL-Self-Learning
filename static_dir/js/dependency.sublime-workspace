@@ -1,0 +1,496 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"prob",
+				"problem_id"
+			],
+			[
+				"btn",
+				"btn-remove-row"
+			],
+			[
+				"padd",
+				"padding-bottom\tproperty"
+			],
+			[
+				"pa",
+				"padding-top\tproperty"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"fon",
+				"font-weight\tproperty"
+			],
+			[
+				"a",
+				"auto\tbackground-size"
+			],
+			[
+				"con",
+				"container-fluid"
+			],
+			[
+				"align",
+				"align-items\tproperty"
+			],
+			[
+				"alig",
+				"align-self\tproperty"
+			],
+			[
+				"ali",
+				"align-content\tproperty"
+			],
+			[
+				"conta",
+				"contact"
+			],
+			[
+				"E",
+				"employment"
+			],
+			[
+				"box-s",
+				"box-sizing\tproperty"
+			],
+			[
+				"u",
+				"uppercase\ttext-transform"
+			],
+			[
+				"tex",
+				"text-transform\tproperty"
+			],
+			[
+				"margi",
+				"margin\tproperty"
+			],
+			[
+				"todo",
+				"todoText"
+			],
+			[
+				"text",
+				"text-decoration\tproperty"
+			],
+			[
+				"add",
+				"add"
+			],
+			[
+				"mode",
+				"modeButtons"
+			],
+			[
+				"inl",
+				"inline-block\tdisplay"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"paddin",
+				"padding\tproperty"
+			],
+			[
+				"num",
+				"numSquares"
+			],
+			[
+				"picked",
+				"pickedColor"
+			],
+			[
+				"pick",
+				"pickColor"
+			],
+			[
+				"generat",
+				"generateRandomColors"
+			],
+			[
+				"reset",
+				"resetButton"
+			],
+			[
+				"random",
+				"randomColor"
+			],
+			[
+				"messa",
+				"messageDisplay"
+			],
+			[
+				"clicke",
+				"clickedColor"
+			],
+			[
+				"color",
+				"colorDisplay"
+			],
+			[
+				"rese",
+				"reset"
+			],
+			[
+				"winn",
+				"winningScore"
+			],
+			[
+				"wiin",
+				"winningScoreDisplay"
+			],
+			[
+				"p1",
+				"p1Display"
+			],
+			[
+				"age",
+				"ageYears"
+			],
+			[
+				"bord",
+				"border-bottom\tproperty"
+			],
+			[
+				"font-",
+				"font-weight\tproperty"
+			],
+			[
+				"ca",
+				"class\tAttr"
+			],
+			[
+				"padding",
+				"padding-left\tproperty"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"te",
+				"text-transform\tproperty"
+			],
+			[
+				"margin-",
+				"margin-left\tproperty"
+			],
+			[
+				"text-a",
+				"text-align\tproperty"
+			],
+			[
+				"marg",
+				"margin\tproperty"
+			],
+			[
+				"border",
+				"border-top\tproperty"
+			],
+			[
+				"borde",
+				"border-bottom\tproperty"
+			],
+			[
+				"margin",
+				"margin-left\tproperty"
+			],
+			[
+				"b",
+				"background\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/js/preview.js",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/css/style.css",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/preview.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/dependencies.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/js/todos.js",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/js/dependency.js",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/index.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/dependencies - Copy.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/app.py",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/css/dependancy.css",
+		"/C/Users/Shivanshi/Documents/Face-Recognition/README.md",
+		"/C/Users/Shivanshi/Documents/Face-Recognition/face_setup.py",
+		"/C/Users/Shivanshi/Documents/Face-Recognition/face_recog.py",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/js/DBMS.js",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/css/DBMS.css",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/DBMS.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/css/main.css",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/static_dir/css/todos.css",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/index_main.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/index.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/assets/js/todos.js",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/assets/css/todos.css",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/assets.py",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/templates/print.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/mKdir/assets/js/todos.js",
+		"/C/Users/Shivanshi/Documents/Web Dev/mKdir/assets/css/todos.css",
+		"/C/Users/Shivanshi/Documents/Web Dev/mKdir/index.html",
+		"/C/Users/Shivanshi/Desktop/NIL-Self-Learning/course.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/CSS-Bootstrap/Purrfect_match/app.css",
+		"/C/Users/Shivanshi/Documents/Web Dev/CSS-Bootstrap/Purrfect_match/purrfect_match.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/index.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/it.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/java.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/partners.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/php.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/react.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/services.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/software.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/techstack.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/tools.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/transportation.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/insurance.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/dotnet.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/ecom.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/education.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/erp.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/hcm.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/health.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/digital.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/crm.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/contact us.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/buisness.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/android.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/about us.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/rs-demo-streams-facebook.php",
+		"/C/Users/Shivanshi/Downloads/index.php",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/boxed.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/slider-flex.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/index-corporate.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/about.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/test.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/services.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/index-corporate-4.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/i5174429_wp1.sql",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/index-portfolio-2.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/CSS-Bootstrap/04_Navbars/navbars.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/CSS-Bootstrap/Image Gallery/gallery.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/demos/gym/gym.css",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/index-corporate.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/index-portfolio.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/index-shop.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/Project/index-fullscreen-video.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/index-fullscreen-video.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/canvas-51/Package-HTML/HTML/animations.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/techsyslabs/index.php",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/techsyslabs/wp-mail.php",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/techsyslabs/wp-config.php",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/techsyslabs/home.html",
+		"/C/Users/Shivanshi/Documents/Web Dev/TechSys/techsyslabs/wp-activate.php",
+		"/C/Users/Shivanshi/Documents/Web Dev/ABSCIO/abscio-consulting/models/consultant.js",
+		"/C/Users/Shivanshi/Documents/Web Dev/ABSCIO/abscio-consulting/models/client.js",
+		"/C/Users/Shivanshi/Documents/Algorithmic Toolbox/client.js",
+		"/C/Users/Shivanshi/Documents/Algorithmic Toolbox/employement.js",
+		"/C/Users/Shivanshi/Documents/Algorithmic Toolbox/consultant.js",
+		"/C/Users/Shivanshi/Documents/Algorithmic Toolbox/education.js",
+		"/C/Users/Shivanshi/Documents/Algorithmic Toolbox/demo.cpp",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ABSCIO/abscio-consulting/.gitignore",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ABSCIO/abscio-consulting/views/index.ejs",
+		"/C/Users/Shivanshi/Downloads/College mein bhi padhai hoti hai(APPARENTLY)/idbms/SQL/trig.sql",
+		"/C/Users/Shivanshi/Downloads/College mein bhi padhai hoti hai(APPARENTLY)/idbms/SQL/lab6.sql",
+		"/C/Users/Shivanshi/Downloads/College mein bhi padhai hoti hai(APPARENTLY)/idbms/SQL/lab7.sql",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ABSCIO/login.ejs.html",
+		"/C/Users/Shivanshi/Downloads/College mein bhi padhai hoti hai(APPARENTLY)/idbms/SQL/lab5.sql",
+		"/C/Users/Shivanshi/Downloads/College mein bhi padhai hoti hai(APPARENTLY)/idbms/SQL/lab4.sql",
+		"/C/Users/Shivanshi/Downloads/College mein bhi padhai hoti hai(APPARENTLY)/idbms/SQL/Company.sql",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/TODO/assets/js/todo.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/TODO/assets/css/todo.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/TODO/index.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/gallery.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/blog.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/purrfect_match.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/colorgame.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/colorgame.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/colorgame.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/colorgame1.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/ColorGameSolution - Part 2/colorGame.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/ColorGameSolution - Part 2/colorGame.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/ColorGame/ColorGameSolution - Part 2/colorGame.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/scorekeeper.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/scorekeeper.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/scorekeeper.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/colortoggle.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/toggle.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/test.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/test.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/stalker.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/javascript test.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/script.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/game.js",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/Javascript Basics/guessing game.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/gallery.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/app.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/Image_Gallery_Solution/gallery.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/07_Image_Gallery/gallery.md",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/04_Navbars/navbars.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/bootstrap-3.3.7/dist/css/bootstrap.css",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/basics.html",
+		"/C/Users/Shivanshi/Documents/Web Dev Bootcamp Projects/CSS-Bootstrap/Image_Gallery_Solution/app.css"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "dependency.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

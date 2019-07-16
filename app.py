@@ -60,7 +60,11 @@ def func_del():
 	print ("from DELETE-> "+ss)
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
+		cur.execute("Select course_id from course join problem on problem.course_id= course.course_id where course_name=(?)",[ss])
+		cid=(cur.fetchone())
 		cur.execute("DELETE From course where course_name=(?)",[ss])
+		cur.execute("DELETE From problem where course_id=(?)",[cid])
+
 		con.commit()
 	con.close()
 	j=1
