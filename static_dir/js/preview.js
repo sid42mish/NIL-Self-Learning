@@ -1,22 +1,4 @@
-$('label').click(function() {
-    console.log(this)
-    if(this.attributes[0].value=="Fastlearning"){
-		const Url='/course/{{name}}/preview-course?id=0'
-  		$post(Url,fuction(){
-
-	    });
-    }	
-	else{
-		const Url='/course/{{name}}/preview-course?id=0'
-		$post(Url,fuction(){
-
-		});
-	}       
-})
-
-
-
-
+// correct answer
 $(document).ready(fuction(){
 	$('#btnSubmit').click(function(){
 		var result = $('input[type="radio"]:checked');
@@ -26,3 +8,10 @@ $(document).ready(fuction(){
 		}
 	})
 })
+
+
+//randomize
+var ul = document.querySelector('ul');
+for (var i = ul.children.length; i >= 0; i--) {
+    ul.appendChild(ul.children[Math.random() * i | 0]);
+}
