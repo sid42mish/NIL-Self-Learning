@@ -32,11 +32,11 @@
 
 
 <div class="container">
-	<h1>Welcome to the NIL-SL project</h1>
+	<h1>The Non-Instructor Led Self Learning project</h1>
 </div>
 
 <div id="box">
-  <h1>CHOOSE TOPIC <span id="toggle-form"><i class="fa fa-plus"></i></span></h1>
+  <h1>CHOOSE TOPIC <span id="toggle-form"><i class="fa fa-plus-square"></i></span></h1>
   <!-- <input type="text" placeholder="Add New Topic">
  -->
   
@@ -44,7 +44,7 @@
 
   <ul id="topiclist">
     {% for key in msg %}
-      <li name="{{key}}"><span><i class="fa fa-trash"></i></span><a  class ="main_item" href="/course/{{ key | replace(' ', '-') }}">{{ key }}</a></li>
+      <li name="{{key}}"><span><i class="fa fa-trash fa-lg" style=" vertical-align: middle;"></i></span><a  class ="main_item" href="/course/{{ key | replace(' ', '-') }}">{{ key }}</a></li>
     {% endfor %}
 
   </ul>
