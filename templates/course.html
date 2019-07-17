@@ -5,7 +5,7 @@
 	<!--   <link rel="stylesheet"  href="{{url_for('static',filename='../static_dir/css/DBMS.css') }}"> -->
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../static_dir/css/DBMS.css">
+  <link rel="stylesheet" type="text/css" href="../static_dir/css/course.css">
     
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -33,37 +33,47 @@
 </nav>
 
 
-<ul>
+
 <div class="container">
 	<h1 >Welcome to {{ cn | replace('-',' ')}} Course</h1>
 </div>
 
 
-<h1>
+
 <div class="container">
-  <li><a  class ="main_item" href="{{cn}}/preview-course">Preview Course</a></li>
-  
+  <a  class ="main_item" href="{{cn}}/preview-course"><h1>Preview Course</h1></a>
+  <a  class ="main_item" href="set-dependencies/{{cn}}"><h1>Set Dependencies</h1></a>
 </div>
 <br>
-<div class="container">
-  <li><a  class ="main_item" href="set-dependencies/{{cn}}">Set Dependencies</a></li>
-</div>
+
+
+<!-- list of questions -->
+
 <div id="box">
-  <h3 >
+    <h1>List of Questions:</h1>
     <ul id="topiclist">
       {% for key in msg %}
-        <li style="font-size:20px; height: 50px; line-height: 10px;" name="{{key}}" value="{{cn}}"><span><i class="fa fa-trash"></i></span><a style="font: serif ; color: black" class ="main_item" href="/problem/{{ key |replace(' ', '-') }}">{{ key }}</a></li>
+        <li name="{{key}}" value="{{cn}}"><span><i class="fa fa-trash" style=" vertical-align: middle;"></i></span><a  class ="main_item" href="/problem/{{ key |replace(' ', '-') }}">{{ key }}</a></li>
       {% endfor %}
     </ul>
-  </h3>
 </div>
+
+
+
+
+
+
+
+<!-- DROPDOWN -->
 <div class="container">
   <button class="btn btn-primary dropbtn">Add New Question</button>
 </div>
 
-</ul>
 
-</h1>
+
+
+
+
 <div class="container">
   <div class="dropdown">
       
@@ -101,7 +111,7 @@
           <input type="text" class="form-control" name="wanswer3" placeholder="Type Wrong Answer Here">
         </div>
         <br>
-        <input class ="btn btn-primary" type="submit" id="submitBtn">
+        <button class="btn btn-primary dropbtn">Submit Question</button>
       </form>
     </div>
       
@@ -112,7 +122,7 @@
 <div class="container">
   
 </div>
-<script type="text/javascript" src="../static_dir/js/DBMS.js"></script>
+<script type="text/javascript" src="../static_dir/js/course.js"></script>
 <!-- <script type="text/javascript" src="{{url_for('static',filename='static_dir/js/DBMS.js') }}"></script> -->
 </body>
 </html>
