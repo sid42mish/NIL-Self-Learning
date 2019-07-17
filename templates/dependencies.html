@@ -14,6 +14,7 @@
 
   <!-- <script type="text/javascript" src="../static_dir/js/lib/jquery-2.1.4.min.js"></script> -->
   <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/lib/jquery-2.1.4.min.js') }}"></script>
+
 </head>
 
 
@@ -37,39 +38,48 @@
 
 
 <div class="container">
-  <h1><strong>Set Dependencies for :</strong></h1>
+  <h1><strong>Set Dependencies for course : {{variable| replace('-',' ')}}</strong></h1>
 </div> 
 <br><br>
 
 <div class="container">
-  
-  
-    <h3>{% for key in msg %}
-    {{key}}</h3>
-    
     <h4><ul id="topiclist">
        	  <div class="element-wrapper">
 	          <div class="row">
+              <h2><i>
+              {% for key in x %}
+                {{key}} is dependent on {{x[key]}}
+              </br>
+              {% endfor %}
+              
+<!-- form starts from here -->
+              <form method="POST" action="/course/set-dependencies/{{variable}}">
+                  <select name="val1">
+                    <option value="none" autofocus>None</option>
+                      {% for key in msg %}
+                        <option value={{key}}>{{key}}</option>
+                      {% endfor %}
+                  </select> 
+                  is dependent on 
+                  <select name="val2">
+                    <option value="none" autofocus>None</option>
+                      {% for key in msg %}
+                        <option value={{key}}>{{key}}</option>
+                      {% endfor %}
+                  </select>
 
-	      		<!-- INPUT -->
-		          <select>
-  		          <option value="none" autofocus>None</option>
-  		            {% for key in msg %}
-  		          <option value={{key}}>{{key}}</option>
-      				    {% endfor %}
-    				  </select>
+    		          <input type="submit" value="Add">
+                  <button class="btn-remove-row">Remove </button>
+              </form>
 
-		          <input type="submit" value="Add">
-
-		          <button class="btn-remove-row">Remove question</button>
-	          </div>
+              </h2></i>
+            </div>
       	  </div>
 
-          <button class="btn-add-row">Add another question</button>
           <br><br>
       
     </ul>
-    <h3>{% endfor %}</h3>
+   
   </h4>
 </div>
 <!-- <script type="text/javascript" src="../static_dir/js/dependency.js"></script> -->

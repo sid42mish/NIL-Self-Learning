@@ -14,7 +14,6 @@ def resetdb():
 		cur.execute("delete from bucket2")
 		cur.execute("delete from savedata")
 		cur.execute("delete from bucket3")
-		cur.execute("delete from bucket4")
 		cur.execute("update user_rating set rating=1500")
 		cur.execute("update problem set rating=1500")
 		cur.execute("INSERT INTO bucket1 select problem_id, course_id from problem")
@@ -23,21 +22,20 @@ resetdb()
 
 mp={}
 def set_dependency():
-	z=0
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
-		x=list(cur.execute("select * from problem"))
-		
+		x=list(cur.execute("select problem_id from problem"))
 		for i in x:
-			mp[z]=i
-			z+=1
-		for i in mp:
-			print (mp[i])
+			mp[i[0]]=[]
+		vec=list(cur.execute("select * from dependencies"))
+		for i in vec:
+			mp[vec[1]].append(vec[0])
+		print(mp)
 		con.commit()
 	con.close()
 
 
-set_dependency()
+# set_dependency()
 
 @app.route("/entry", methods=["GET"])
 def fun_get():
@@ -89,7 +87,6 @@ def func_del():
 		cid=(cur.fetchone())
 		cur.execute("DELETE From course where course_name=(?)",[ss])
 		cur.execute("DELETE From problem where course_id=(?)",(cid))
-
 
 		con.commit()
 	con.close()
@@ -200,7 +197,6 @@ def cdelete(variable):
 		cur.execute("delete from bucket1 where bucket1.problem_id in (select problem_id from problem JOIN course ON problem.course_id=course.course_id where course_name=(?) and title=(?))",(c_name,ss))
 		cur.execute("delete from bucket2 where bucket2.problem_id in (select problem_id from problem JOIN course ON problem.course_id=course.course_id where course_name=(?) and title=(?))",(c_name,ss))
 		cur.execute("delete from bucket3 where bucket3.problem_id in (select problem_id from problem JOIN course ON problem.course_id=course.course_id where course_name=(?) and title=(?))",(c_name,ss))
-		cur.execute("delete from bucket4 where bucket4.problem_id in (select problem_id from problem JOIN course ON problem.course_id=course.course_id where course_name=(?) and title=(?))",(c_name,ss))		
 		cur.execute("delete from problem where problem.problem_id in (select problem_id from problem JOIN course ON problem.course_id=course.course_id where course_name=(?) and title=(?))",(c_name,ss))
 		con.commit()
 	con.close()
@@ -276,13 +272,6 @@ def preview(variable):
 			l+=i
 		bucket.append(l)
 		
-		cur.execute("select distinct problem_id from bucket4 join course on course.course_id=bucket4.course_id where course_name= (?)",[c_name])
-		t=cur.fetchall()
-		l=[]
-		for i in t:
-			l+=i
-		bucket.append(l)
-		
 	con.close()	
 	bucket.append([])
 	print (bucket)
@@ -312,15 +301,6 @@ def preview(variable):
 		with sql.connect("hack.db") as con:
 			cur=con.cursor()
 			cur.execute("delete from bucket3 where problem_id=(?)",[bucket[2][0]])
-			con.commit()
-		con.close()
-		f=1
-	elif (len(bucket[0])!=0):
-		pre.append(bucket[3][0])
-		pre.append(3)
-		with sql.connect("hack.db") as con:
-			cur=con.cursor()
-			cur.execute("delete from bucket4 where problem_id=(?)",[bucket[3][0]])
 			con.commit()
 		con.close()
 		f=1
@@ -400,8 +380,6 @@ def prev_pos(variable):
 			cur.execute("DELETE FROM bucket2 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
 		if (ra==2):
 			cur.execute("DELETE FROM bucket3 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
-		if (ra==3):
-			cur.execute("DELETE FROM bucket4 WHERE problem_id=(?) and course_id=(?)",(el,c_id))
 		con.commit()
 	con.close()
 
@@ -425,25 +403,23 @@ def prev_pos(variable):
 				cur.execute("INSERT INTO bucket2 VALUES (?,?)",(pre[0],c_id))
 			if (pre[1]==1):
 				cur.execute("INSERT INTO bucket3 VALUES (?,?)",(pre[0],c_id))
-			if (pre[1]==2):
-				cur.execute("INSERT INTO bucket4 VALUES (?,?)",(pre[0],c_id))
 			con.commit()
 		con.close()
 	pre.clear()
 	print(bucket)
-	if(len(bucket[0])==0 and len(bucket[1])==0 and len(bucket[2])==0 and len(bucket[3])==0):
+	if(len(bucket[0])==0 and len(bucket[1])==0 and len(bucket[2])==0 ):
 		grade=''
 		with sql.connect("hack.db") as con:
 			cur=con.cursor()
 			rat=cur.execute("SELECT rating from user_rating where user_id=1").fetchone()[0]
 			rat=int(rat)
-			if(rat>2500):
+			if(rat>2000):
 				grade='A+'
-			elif(rat>2000):
+			elif(rat>1700):
 				grade='A'
-			elif(rat>1500):
+			elif(rat>1300):
 				grade='B+'
-			elif(rat>1200):
+			elif(rat>1000):
 				grade='B'
 			else:
 				grade='C'
@@ -451,9 +427,9 @@ def prev_pos(variable):
 			con.commit()
 		con.close()
 		return render_template("course_end.html",x="Congratulations! Course Ended.",grade=grade)
-	ra=random.randint(0,3)
+	ra=random.randint(0,2)
 	while(len(bucket[ra])==0):
-		ra=(ra+1)%4
+		ra=(ra+1)%3
 	ra1=random.randint(0,len(bucket[ra])-1)
 	pre.append(bucket[ra][ra1])
 	pre.append(ra);
@@ -476,9 +452,7 @@ def prev_pos(variable):
 
 @app.route("/course/set-dependencies/<variable>", methods=["GET"])
 def dependency(variable):
-	s={}
 	c_name=variable.replace('-',' ')
-	print("kuch bhi"+c_name)
 	cid=1
 	with sql.connect("hack.db") as con:
 		curr=con.cursor()
@@ -486,21 +460,62 @@ def dependency(variable):
 		cid= (curr.fetchone()[0])
 		con.commit()
 	con.close()
-
+	s=[]
+	dep={}
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
 		cur.execute("SELECT title from problem where course_id=(?)",[cid])
-		for row in cur:  
-			c=0
-			st=""
-			f=0
-			for x in row:
-				if(c%2==0):
-					st=x
-				else:
-					f=x
-				c+=1
-				s[st]=x	
+		x=cur.fetchall()
+		for i in x:
+			s.append(i[0])
+		cur.execute("SELECT x,y from dependencies where course_id=(?)",[cid])
+		x=cur.fetchall()
+		print (x)
+
+		for i in x:
+			dep[i[1]]=(i[0])
+	
+	con.close()
+	return render_template("dependencies.html", msg=s,x=dep,variable=variable)
+
+@app.route("/course/set-dependencies/<variable>", methods=["POST"])
+def dependency_post(variable):
+	s={}
+	c_name=variable.replace('-',' ')
+	option1=request.form.get('val1')
+	option2=request.form.get('val2')
+	print ("set dependencies post for-->" + c_name)
+	cid=1
+	with sql.connect("hack.db") as con:
+		curr=con.cursor()
+		curr.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
+		cid=curr.fetchone()[0]
+		print (cid)
+		curr.execute("SELECT problem_id FROM problem WHERE course_id= (?) and title=(?) ",(cid,option1))
+		x=curr.fetchone()[0];
+		curr.execute("SELECT problem_id FROM problem WHERE course_id= (?) and title=(?)",(cid,option2))
+		y=curr.fetchone()[0];
+		curr.execute("INSERT INTO dependencies VALUES (?,?,?)",(x,y,cid))
 		con.commit()
 	con.close()
-	return render_template("dependencies.html", msg=s)
+	s=[]
+	dep={}
+	with sql.connect("hack.db") as con:
+		cur=con.cursor()
+		cur.execute("SELECT title from problem where course_id=(?)",[cid])
+		x=cur.fetchall()
+		for i in x:
+			s.append(i[0])
+		cur.execute("SELECT * from dependencies where course_id=(?)",[cid])
+		x=cur.fetchall()
+		for i in x:
+			cur.execute("select title from problem where problem_id=(?)",[i[1]])
+			o1=cur.fetchone()[0]
+			cur.execute("select title from problem where problem_id=(?)",[i[0]])
+			o2=cur.fetchone()[0]
+			dep[o1]=o2
+	
+	con.close()
+
+
+	return render_template("dependencies.html", msg=s,x=dep,variable=variable)
