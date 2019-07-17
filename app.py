@@ -15,9 +15,29 @@ def resetdb():
 		cur.execute("delete from savedata")
 		cur.execute("delete from bucket3")
 		cur.execute("delete from bucket4")
+		cur.execute("update user_rating set rating=1500")
+		cur.execute("update problem set rating=1500")
 		cur.execute("INSERT INTO bucket1 select problem_id, course_id from problem")
 	con.close()
 resetdb()
+
+mp={}
+def set_dependency():
+	z=0
+	with sql.connect("hack.db") as con:
+		cur=con.cursor()
+		x=list(cur.execute("select * from problem"))
+		
+		for i in x:
+			mp[z]=i
+			z+=1
+		for i in mp:
+			print (mp[i])
+		con.commit()
+	con.close()
+
+
+set_dependency()
 
 @app.route("/entry", methods=["GET"])
 def fun_get():
@@ -69,6 +89,7 @@ def func_del():
 		cid=(cur.fetchone())
 		cur.execute("DELETE From course where course_name=(?)",[ss])
 		cur.execute("DELETE From problem where course_id=(?)",(cid))
+
 
 		con.commit()
 	con.close()
@@ -230,7 +251,7 @@ def preview(variable):
 	print("coursname-->"+c_name)
 	bucket.clear()
 
-#	resetdb()
+	resetdb()
 	
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
@@ -343,6 +364,33 @@ def prev_pos(variable):
 		bucket[ra].remove(el)
 		con.commit()
 	con.close()
+	wrong = request.form['mcq']
+	if wrong!='ca':
+		with sql.connect("hack.db") as con:
+			cur=con.cursor()
+			cur.execute("SELECT rating from problem where  problem_id=(?)",[pre[0]]	)
+			rat=cur.fetchone()[0]
+			rat=rat+int(10*rat/1500)
+			cur.execute("update problem set rating=(?) where problem_id=(?)",(rat,pre[0]))
+			cur.execute("SELECT rating from user_rating where user_id=1")
+			rat=cur.fetchone()[0]
+			rat=rat-int(50*rat/1500)
+			cur.execute("update user_rating set rating=(?) where user_id=1",[rat])
+			con.commit()
+		con.close()
+	else:
+		with sql.connect("hack.db") as con:
+			cur=con.cursor()
+			cur.execute("SELECT rating from problem where  problem_id=(?)",[pre[0]])
+			rat=cur.fetchone()[0]
+			rat=rat-int(50*rat/1500)
+			cur.execute("update problem set rating=(?) where problem_id=(?)",(rat,pre[0]))
+			cur.execute("SELECT rating from user_rating where user_id=1")
+			rat=cur.fetchone()[0]
+			rat=rat+int(10*rat/1500)
+			cur.execute("update user_rating set rating=(?) where user_id=1",[rat])
+			con.commit()
+		con.close()
 
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
@@ -360,8 +408,6 @@ def prev_pos(variable):
 	print("*********************************************")
 	print (bucket)
 	print(pre)
-	wrong = request.form['mcq']
-	print(wrong)
 	if wrong!='ca':
 		print ("wrong")
 		bucket[0].append(pre[0])
@@ -386,7 +432,25 @@ def prev_pos(variable):
 	pre.clear()
 	print(bucket)
 	if(len(bucket[0])==0 and len(bucket[1])==0 and len(bucket[2])==0 and len(bucket[3])==0):
-		return render_template("course_end.html",x="Congratulations! Course Ended.")
+		grade=''
+		with sql.connect("hack.db") as con:
+			cur=con.cursor()
+			rat=cur.execute("SELECT rating from user_rating where user_id=1").fetchone()[0]
+			rat=int(rat)
+			if(rat>2500):
+				grade='A+'
+			elif(rat>2000):
+				grade='A'
+			elif(rat>1500):
+				grade='B+'
+			elif(rat>1200):
+				grade='B'
+			else:
+				grade='C'
+
+			con.commit()
+		con.close()
+		return render_template("course_end.html",x="Congratulations! Course Ended.",grade=grade)
 	ra=random.randint(0,3)
 	while(len(bucket[ra])==0):
 		ra=(ra+1)%4
@@ -408,7 +472,6 @@ def prev_pos(variable):
 	print (bucket)
 	
 	return render_template("preview.html",name=variable,problem=cid[2], ca=cid[3], cw1=cid[4], cw2=cid[5], cw3=cid[6])
-
 
 
 @app.route("/course/set-dependencies/<variable>", methods=["GET"])
