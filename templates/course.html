@@ -92,24 +92,38 @@
         </div>
         
         <div class="form-group">
-          <label>Correct Answer</label>
-          <input type="text" class="form-control" name="canswer" placeholder="Type Correct Answer Here">
+          <label>Option-A</label>
+          <input type="text" class="form-control" name="canswer" placeholder="Type Option-A Here">
         </div>
 
         <div class="form-group">
-          <label>Wrong Answer-1</label>
-          <input type="text" class="form-control" name="wanswer1" placeholder="Type Wrong Answer Here">
+          <label>Option-B</label>
+          <input type="text" class="form-control" name="wanswer1" placeholder="Type Option-B Here">
         </div>
 
         <div class="form-group">
-          <label>Wrong Answer-2</label>
-          <input type="text" class="form-control" name="wanswer2" placeholder="Type Wrong Answer Here">
+          <label>Option-C</label>
+          <input type="text" class="form-control" name="wanswer2" placeholder="Type Option-C Here">
         </div>
 
         <div class="form-group">
-          <label>Wrong Answer-3</label>
-          <input type="text" class="form-control" name="wanswer3" placeholder="Type Wrong Answer Here">
+          <label>Option-D</label>
+          <input type="text" class="form-control" name="wanswer3" placeholder="Type Option-D Here">
         </div>
+        <div class="opt">
+          <label>Correct answer  :</label>
+          <select name="option" placeholder="A">
+            <option value="A" autofocus>A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label>Explanation</label>
+            <textarea rows="4" class="form-control" name ="explain" placeholder="Type Problem Here"></textarea>
+         </div>
         <br>
         <button class="btn btn-primary dropbtn">Submit Question</button>
       </form>

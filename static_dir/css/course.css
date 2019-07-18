@@ -93,3 +93,7 @@ button{
 }
 
 
+select {
+	color: black;
+	font-weight: bold;
+}

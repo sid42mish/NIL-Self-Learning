@@ -51,10 +51,11 @@ li span {
     opacity: 0;
 }
 
-li:hover {
+#box ul li:hover {
     background: #f99922;
     color: black;
     font-weight: bold;
+    cursor: pointer;
 }
 
 li:hover span {

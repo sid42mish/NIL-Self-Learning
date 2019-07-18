@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, jsonify
+
+from flask import Flask, render_template, request, redirect, jsonify, make_response
 import random
 import queue
 import sqlite3 as sql
@@ -159,6 +160,8 @@ def fun_cpost(variable):
 	wanswer1=request.form["wanswer1"]
 	wanswer2=request.form["wanswer2"]
 	wanswer3=request.form["wanswer3"]
+	correct_opt=request.form["option"]
+	explanation=request.form["explain"]
 	print ("title--> "+title)
 	c_name=variable.replace('-',' ')
 	cid=1
@@ -167,7 +170,7 @@ def fun_cpost(variable):
 		cur.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
 		cid= (cur.fetchone()[0])
 		cur=con.cursor()
-		cur.execute("INSERT INTO problem (title,problem,canswer,wanswer1,wanswer2,wanswer3,course_id) VALUES (?,?,?,?,?,?,?)",(title,problem,canswer,wanswer1,wanswer2,wanswer3,cid))
+		cur.execute("INSERT INTO problem (title,problem,canswer,wanswer1,wanswer2,wanswer3,course_id,correct_opt,explanation) VALUES (?,?,?,?,?,?,?)",(title,problem,canswer,wanswer1,wanswer2,wanswer3,cid,correct_opt,explanation))
 		con.commit()
 	con.close()
 	s={}
@@ -336,17 +339,41 @@ def preview(variable):
 
 	return render_template("preview.html",name=variable,title=cid[1],problem=cid[2], ca=cid[3], cw1=cid[4], cw2=cid[5], cw3=cid[6])
 
+
 @app.route("/course/<variable>/preview-course", methods=["POST"])
 def prev_pos(variable):
 	c_name=variable.replace('-',' ')
 	c_id=0;
-	print (bucket)
 	with sql.connect("hack.db") as con:			#finding the course
 		cur=con.cursor()
 		cur.execute("select course_id from course where course_name=(?)",[c_name])
 		c_id=(cur.fetchone()[0])
 		con.commit()
 	con.close()
+	
+	print (bucket)
+	submi=str(request.form['select'])
+	tit=str(request.form['title'])
+	if submi is not None and tit is not None:
+		print("you are in the check portion")
+		with sql.connect("hack.db") as con:		
+			cur=con.cursor()
+			cur.execute("select problem_id from problem where title=(?) and course_id=(?)",[tit,c_id])
+			pid=(cur.fetchone()[0])
+			cur.execute("select correct_opt from problem where problem_id=(?)",[pid])
+			right=(cur.fetchone()[0])
+			cur.execute("select * from problem where problem_id=(?)",[pid])
+			cid=(cur.fetchone())		
+			con.commit()
+		con.close()
+		submi=int(submi)
+		right=int(right)	
+		print("fdmjlaksdjflkasdjflkd",submi==right)
+		if (right==submi):
+			print ("right answer")
+		return jsonify({'right':right, 'submi':submi})
+			
+
 	with sql.connect("hack.db") as con:
 		cur=con.cursor()
 		cur.execute("select * from savedata")
@@ -461,6 +488,7 @@ def prev_pos(variable):
 		con.close()
 		return render_template("course_end.html",x="Congratulations! Course Ended.",grade=grade)
 	ra=random.randint(0,2)
+	
 	while(len(bucket[ra])==0):
 		ra=(ra+1)%3
 	ra1=random.randint(0,len(bucket[ra])-1)
