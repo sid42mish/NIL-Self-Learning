@@ -3,23 +3,17 @@
 <head>
 <title>Home | NIL-SL</title>
    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
- 	<link rel="stylesheet"  href="{{url_for('static',filename='../static_dir/css/style.css') }}">
+ 	
     
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet"  href="{{url_for('static',filename='../static_dir/css/style.css') }}">
+
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
   <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/lib/jquery-2.1.4.min.js') }}"></script>
-  <script src="http://www.fastlearning.in/controller/js/jquery-1.9.1.min.js"></script>
-  
 
-  <!-- <script type="text/javascript" >
-     function preventBack(){window.history.forward();}
-      setTimeout("preventBack()", 0);
-      window.onunload=function(){null};
-  </script>
- -->
-  <!-- <script type="text/javascript" src="{{url_for('static',filename='../static_dir/js/lib/jquery-2.1.4.min.js') }}"></script> -->
 </head>
 
 
@@ -46,29 +40,26 @@
 	<h1>Preview Course bla {{name | replace('-',' ')}}</h1>
 </div>
   
-<div class="container">
-  <div class="scp-quizzes-main">
-    <div class="scp-quizzes-data">
-      <h3>Question : {{problem}}</h3>
-      <br/> 
-      <ul style="list-style: none;">
-        <form id="form" method="POST" >
-          <div class="answers" ><li><input type="radio" name="mcq" value="ca">{{ca}}<br></li></div>
-          <div class="answers"><li><input type="radio" name="mcq" value="cw1">{{cw1}}<br></li></div>
-          <div class="answers"><li><input type="radio" name="mcq" value="cw2">{{cw2}}<br></li></div>
-          <div class="answers"><li><input type="radio" name="mcq" value="cw3">{{cw3}}<br></li></div>
 
-          <div class="answers"><input id="btnSubmit" type="submit" value="Submit"></div>
 
-        </form>
-  	  </ul>
-  	</div>
-  </div>
+
+  
+  <div id="box">
+
+    <h2>QUESTION: {{problem}} </h2><br><br>
+
+    <ul id="topiclist">
+      
+        <li name="mcq" value="ca"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{ca}}</li>
+        <li name="mcq" value="cw1"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw1}}</li>
+        <li name="mcq" value="cw2"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw2}}</li>
+        <li name="mcq" value="cw3"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw3}}</li>
+      
+
+    </ul>
 </div>
 
-<div class="container">
-    <br />
-</div>
+
 
 
 <!-- <script type="text/javascript" src="../static_dir/js/todos.js"></script> -->
