@@ -1,16 +1,16 @@
 
 body{
-	background: url("./page-2.jpg");
-	background-position: center;
-    background-size: cover;
-    font-family: Roboto;
+	/*background: url(https://images.unsplash.com/photo-1558834642-4aac34e9ff44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1870&q=80);*/
+	background: url("./gold.jpg");
+	/*background-size: contain;*/
+	background-position: top center;
+	background-repeat: repeat;
+	font-family: Roboto;
 }
-
 ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-  color: white
 }
 
 
@@ -19,29 +19,19 @@ h1 {
 	/*background: #f99922;*/
 	color: white;
 	margin: 0;
-	padding: 40px 40px;
+	padding: 20px 0px;
 	text-transform: uppercase;
-	font-size: 50px;
-	font-weight: normal;
+	font-size: 35px;
 	text-align: center;
 	font-weight: bold;
 }
 
 
-.fa-plus {
-	float: right;
+span {
+	text-align: center;
 }
 
-li a {
-	height: 60px;
-	line-height: 40px;
-	color: aqua;
-}
-/*
-li:nth-child(2n){
-	background: #f7f7f7;
-}
-*/
+
 li span {
 	background: #e74c3c;
 	height: 40px;
@@ -78,20 +68,21 @@ input:focus{
 #box {
 	align-content: center;
 	width: 360px;
-	margin: 100px auto;
-	background: #f7f7f7;
+	margin: 20px auto;
+	/*background: #f7f7f7;*/
 	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
 }
 
-.completed {
-	color: gray;
-	text-decoration: line-through;
+.main_item {
+	color: white;
+	font-size: x-large;
+	/*font-weight: bold;*/
 }
 
 
 button{
 	align-items: center;
-
+	background-color: #f99922;
 }	
 
 #formul {
@@ -102,11 +93,3 @@ button{
 }
 
 
-
-
-
-
-/*Dropdown Menu*/
-.dropdown {
-
-}

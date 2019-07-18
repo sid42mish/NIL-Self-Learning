@@ -25,7 +25,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <a class="navbar-brand" href="#">Snow/TDS</a>
+      <a class="navbar-brand" href="/course/{{variable}}">Snow/TDS</a>
       <ul class="nav navbar-nav navbar-right">
         <li ><a href="/entry">Home</a></li>
         <li><a href="">About</a></li>
@@ -44,8 +44,8 @@
 
 <div class="container">
     <h4><ul id="topiclist">
-       	  <div class="element-wrapper">
-	          <div class="row">
+          <div class="element-wrapper">
+            <div class="row">
             <h3>  <i>
 
                 {% for key in x %}
@@ -54,8 +54,9 @@
                 </br>
                 {% endfor %}
             </h3>
+
               <h2></i>              
-<!-- form starts from here -->
+              <!-- form starts from here -->
               <form method="POST" action="/course/set-dependencies/{{variable}}">
                   <select name="val1">
                     <option value="none" autofocus>None</option>
@@ -71,12 +72,12 @@
                       {% endfor %}
                   </select>
 
-    		          <input type="submit" value="Add">
+                  <input type="submit" value="Add">
               </form>
 
               </h2></i>
             </div>
-      	  </div>
+          </div>
 
           <br><br>
       

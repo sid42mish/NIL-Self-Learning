@@ -3,36 +3,63 @@
    <head>
       <title>Problem</title>
     
-      <link rel="stylesheet" type="text/css" href="../static_dir/css/style.css" />
-                
+      
+      <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <link rel="stylesheet" type="text/css" href="../static_dir/css/style.css">
+
+	  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+	  <script type="text/javascript" src="../static_dir/js/lib/jquery-2.1.4.min.js"></script>            
  
-    <script src="http://www.fastlearning.in/controller/js/jquery-1.9.1.min.js"></script>
-    
-     <script type="text/javascript">
-	$(document).ready(function() {
-	    $('label').click(function() {
-	        $('label').removeClass('worngans');
-	        $(this).addClass('worngans');
-	    });
-	});
-	</script>
-   
-    
    </head>
+
+
 <body >
-	<div class="scp-quizzes-main">
-	<div class="scp-quizzes-data">
-	  <h3>{{problem}}</h3>
-	  <br/>
-	    <input type="radio" id="Fastlearning" name="question1">
-	       <label for="Fastlearning">1. {{ca}}</label><br/>
-	    <input type="radio"  name="question1">
-	       <label>2. {{cw1}}</label><br/>
-	    <input type="radio" name="question1">
-	       <label>3. {{cw2}}</label> <br/>
-	    <input type="radio" name="question1">
-	     <label>4. {{cw3}}</label> 
-	 </div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <a class="navbar-brand" href="/course/{{name}}">Snow/TDS</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="/entry">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+	<div id="box">
+		<div class="container">
+		  <h1>{{problem}}</h1>
+		  <br/>
+		  	<h2>
+
+			    <input type="radio" id="Fastlearning" name="question1">
+			       <label for="Fastlearning">{{ca}}</label>
+			       <br/>
+			    <input type="radio"  name="question1">
+			       <label>{{cw1}}</label>
+			       <br/>
+			    <input type="radio" name="question1">
+			       <label>{{cw2}}</label>
+			       <br/>
+			    <input type="radio" name="question1">
+			     <label>{{cw3}}</label>
+		    
+		 </h2>
+		</div>
 	</div>
+
+
+
+
 </body>
 </html>
