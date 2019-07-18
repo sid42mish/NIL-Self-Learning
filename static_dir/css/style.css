@@ -87,3 +87,14 @@ li:hover span {
 button{
     align-items: center;
 }
+
+
+.correct {
+    background-color: #008000;
+    color: white;
+}
+
+.incorrect {
+    background-color: #8B0000;
+    color: white;
+}
