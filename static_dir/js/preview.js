@@ -19,7 +19,7 @@ console.log("connecteed");
 
 // list item delete
 
-$("ul").on("click", "li", function(event){
+$("ul").one("click", "li", function(event){
 	var title=this.attributes[2].value
 	var redir=this.baseURI
 	var select=this.attributes[1].value
@@ -50,7 +50,14 @@ $("ul").on("click", "li", function(event){
 		}
 	});
 	
-	
+	//explanation
+	$(".formul").css("display", "block");
+
+	//functionality closes
+
+
 	event.stopPropagation();
 	
 });
+
+

@@ -1,7 +1,8 @@
 body{
     background: url("./pat.jpg");
-    background-size: contain;
-    background-position: top center;
+    /*background-size: contain;*/
+    /*background-position: top center;*/
+    background-repeat: 10;
     font-family: Roboto;
     color : white;
 }
@@ -85,8 +86,19 @@ li:hover span {
 }
 
 
+.formul {
+    color: white;
+    display: none;
+    padding-top: 50px;
+    padding-bottom: 30px
+}
+
+
 button{
     align-items: center;
+    color: #8B0000;
+    background-color: #008000;
+    font-weight: bolder;
 }
 
 
