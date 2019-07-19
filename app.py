@@ -1,5 +1,6 @@
 
 from flask import Flask, render_template, request, redirect, jsonify, make_response
+import flask
 import random
 import queue
 import sqlite3 as sql
@@ -540,78 +541,75 @@ def dependency(variable):
 	con.close()
 	return render_template("dependencies.html", msg=s,x=dep,variable=variable)
 
-@app.route("/course/set-dependencies/<variable>", methods=["POST"])
+@app.route("/course/set-dependencies/<variable>", methods=["POST","DELETE"])
 def dependency_post(variable):
-	c_name=variable.replace('-',' ')
-	option1=str(request.form.get('val1'))
-	option2=str(request.form.get('val2'))
-	print(option1,option2)
-	print ("set dependencies post for-->" + c_name)
-	cid=1
-	with sql.connect("hack.db") as con:
-		curr=con.cursor()
-		curr.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
-		cid=curr.fetchone()[0]
-		if((option1!="None" and option2!="None") and (option1!="none" and option2!="none")) :
-			print ("--------------------here-----------------------")
-			curr.execute("INSERT INTO dependencies VALUES (?,?,?)",(option1,option2,cid))
-		con.commit()
-	con.close()
-	s=[]
-	dep=[]
-	with sql.connect("hack.db") as con:
-		cur=con.cursor()
-		cur.execute("SELECT title from problem where course_id=(?)",[cid])
-		x=cur.fetchall()
-		for i in x:
-			s.append(i[0])
-		cur.execute("SELECT distinct x,y from dependencies where course_id=(?)",[cid])
-		x=cur.fetchall()
-		print (x)
+	if (flask.request.method=="DELETE"):
+		print ("WE ARE IN DELETE METHOD")
+		c_name=variable.replace('-',' ')
+		option1=str(request.form['i1'])
+		option2=str(request.form['i2'])
+		print(option1,"---",option2)
+		cid=1
+		with sql.connect("hack.db") as con:
+			curr=con.cursor()
+			curr.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
+			cid= (curr.fetchone()[0])
+			curr.execute("DELETE FROM dependencies where x=(?) and y=(?)",(option1,option2))
+			con.commit()
+		con.close()
+		s=[]
+		dep=[]
+		with sql.connect("hack.db") as con:
+			cur=con.cursor()
+			cur.execute("SELECT title from problem where course_id=(?)",[cid])
+			x=cur.fetchall()
+			for i in x:
+				s.append(i[0])
+			cur.execute("SELECT distinct x,y from dependencies where course_id=(?)",[cid])
+			x=cur.fetchall()
 
-		for i in x:
-			l=[]
-			l.append(i[0])
-			l.append(i[1])
-			dep.append(l)
-	
-	con.close()
-	return render_template("dependencies.html", msg=s,x=dep,variable=variable)
+			for i in x:
+				l=[]
+				l.append(i[0])
+				l.append(i[1])
+				dep.append(l)
 
-
-@app.route("/course/set-dependencies/<variable>", methods=["DELETE"])
-def dependency_remove(variable):
-	print ("WE ARE IN DELETE METHOD")
-	c_name=variable.replace('-',' ')
-	option1=str(request.form['i1'])
-	option2=str(request.form['i2'])
-	print(option1,option2)
-	cid=1
-	with sql.connect("hack.db") as con:
-		curr=con.cursor()
-		curr.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
-		cid= (curr.fetchone()[0])
-		curr.execute("DELETE FROM dependencies where x=(?) and y=(?)",(option1,option2))
-		con.commit()
-	con.close()
-	s=[]
-	dep=[]
-	with sql.connect("hack.db") as con:
-		cur=con.cursor()
-		cur.execute("SELECT title from problem where course_id=(?)",[cid])
-		x=cur.fetchall()
-		for i in x:
-			s.append(i[0])
-		cur.execute("SELECT distinct x,y from dependencies where course_id=(?)",[cid])
-		x=cur.fetchall()
-	
-		for i in x:
-			l=[]
-			l.append(i[0])
-			l.append(i[1])
-			dep.append(l)
-	
-	con.close()
-	print (dep)
-	return render_template("dependencies.html", msg=s,x=dep,variable=variable)
+		con.close()
+		print (dep)
+		return render_template("dependencies.html", msg=s,x=dep,variable=variable)
+	else:
+		c_name=variable.replace('-',' ')
+		option1=request.form["val1"]
+		option2=request.form["val2"]
+		print (option1,"<-->",option2)
+		print ("set dependencies post for-->" + c_name)
+		cid=1
+		with sql.connect("hack.db") as con:
+			curr=con.cursor()
+			curr.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
+			cid=curr.fetchone()[0]
+			if((option1!="None" and option2!="None") and (option1!="none" and option2!="none")) :
+				print ("--------------------here-----------------------")
+				curr.execute("INSERT INTO dependencies VALUES (?,?,?)",(option1,option2,cid))
+			con.commit()
+		con.close()
+		s=[]
+		dep=[]
+		with sql.connect("hack.db") as con:
+			cur=con.cursor()
+			cur.execute("SELECT title from problem where course_id=(?)",[cid])
+			x=cur.fetchall()
+			print ("x--",x)
+			for i in x:
+				s.append(i[0])
+			cur.execute("SELECT distinct x,y from dependencies where course_id=(?)",[cid])
+			x=cur.fetchall()
+			print ("x---",x)
+			for i in x:
+				l=[]
+				l.append(i[0])
+				l.append(i[1])
+				dep.append(l)
+		con.close()
+		return render_template("dependencies.html", msg=s,x=dep,variable=variable)
 

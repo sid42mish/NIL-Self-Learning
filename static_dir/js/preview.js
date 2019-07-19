@@ -14,43 +14,50 @@
 // })
 
 
-console.log("connecteed");
+// console.log("connecteed");
 
 
 // list item delete
 
-$("ul").on("click", "li", function(event){
+$("ul").one("click", "li", function(event){
 	var title=this.attributes[2].value
 	var redir=this.baseURI
 	var select=this.attributes[1].value
 	var x=this
 	var righ;
-	console.log(redir)
+	// console.log(redir)
 	$.ajax({
 		url: redir,
 	    type: "POST",
 	    data: {title: title, select: select},
 	    error: function (request, error) {
-	        console.log(arguments);
+	        // console.log(arguments);
 	        alert(" Can't do because: " + error);
 	    },
 	    success: function(result) {
-	    	console.log("Hurray!!!!!!",result)
-	    	console.log(x)
-	    	console.log(result.right ,result.submi)
+	    	// console.log("Hurray!!!!!!",result)
+	    	// console.log(x)
+	    	// console.log(result.right ,result.submi)
 	    	if (result.right==result.submi){
-	    		console.log("correct")
+	    		// console.log("correct")
 	    		$(x).toggleClass('correct');
 	    	}
 	    	else{
-	    		console.log("incorrect")
+	    		// console.log("incorrect")
 	    		$(x).toggleClass('incorrect');	
 	   		}
 					
 		}
 	});
 	
-	
+	//explanation
+	$(".formul").css("display", "block");
+
+	//functionality closes due to "one"
+
+
 	event.stopPropagation();
 	
 });
+
+

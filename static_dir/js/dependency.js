@@ -18,6 +18,8 @@ $(document).on("click", ".btn-remove-row", function(){
 		var todoText = (this).baseURI;
 		console.log(this)
 		console.log(todoText)
+		var x=this
+
 		$.ajax({
 			headers: {
 		        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -31,11 +33,23 @@ $(document).on("click", ".btn-remove-row", function(){
 		    },
 		    success: function () {
 		    	console.log("successful deletion")
-   		//		window.location.reload(true);
+   				window.location.reload(true);
 
 		    }
 		});
 	
 	}
-//	event.stopPropagation();
+	event.stopPropagation();
 })
+$(document).ready(function(){
+	$('#submitBtn').click(function(){
+		var todoText=this.baseURI;
+		console.log(todoText)
+		$("#myForm").submit(); // Submit the form
+		$.post(todoText, {
+		 	javascript_data: 1 
+		});
+	});
+	
+	event.stopPropagation();
+});

@@ -47,32 +47,36 @@
           <div class="element-wrapper">
             <div class="row">
             <h3>  <i>
-
+               <ul>
                 {% for key in x %}
+                <li>
                   {{key[0]}} is dependent on {{key[1]}}
+                
                   <button class="btn-remove-row" value="{{key[0]}}" name="{{key[1]}}">Remove </button>
+                </li>
                 </br>
                 {% endfor %}
+              </ul>
             </h3>
 
               <h2></i>              
               <!-- form starts from here -->
-              <form method="POST" action="/course/set-dependencies/{{variable}}">
-                  <select name="val1">
-                    <option value="none" autofocus>None</option>
+
+              <form method="POST" action="/course/set-dependencies/{{variable}}" id="myform" >
+                  <select name="val1" >
+                      <option value="none" autofocus>None</option>
                       {% for key in msg %}
-                         <option value={{key}}>{{key}}</option>
+                         <option value="{{key}}">{{key}}</option>
                       {% endfor %}
                   </select> 
                   is dependent on 
                   <select name="val2">
-                    <option value="none" autofocus>None</option>
+                      <option value="none" autofocus>None</option>
                       {% for key in msg %}
-                        <option value={{key}}>{{key}}</option>
+                        <option value="{{key}}">{{key}}</option>
                       {% endfor %}
                   </select>
-
-                  <input type="submit" value="Add">
+                  <input value="Add" type="submit">
               </form>
 
               </h2></i>
