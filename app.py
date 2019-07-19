@@ -366,8 +366,6 @@ def prev_pos(variable):
 			cid=(cur.fetchone())		
 			con.commit()
 		con.close()
-		submi=int(submi)
-		right=int(right)	
 		print("fdmjlaksdjflkasdjflkd",submi==right)
 		if (right==submi):
 			print ("right answer")
