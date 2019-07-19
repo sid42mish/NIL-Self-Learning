@@ -94,6 +94,17 @@ li:hover span {
 }
 
 
+.exp {
+    background: #f99922;
+    color: black;
+    font-weight: bold;
+}
+
+.exp:hover {
+    color: #FFDEAD;
+    background-color: #008000;
+}
+
 button{
     align-items: center;
     color: #8B0000;
