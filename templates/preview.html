@@ -37,14 +37,13 @@
 
 
 <div class="container">
-	<h1>Preview Course {{name | replace('-',' ')}}</h1>
-
-  
+	<h1>Preview Course <span class="cname">{{name | replace('-',' ')}}</span></h1>
 </div>
   
+  
 <div id="box">
-  <h2>Title: {{title}}</h2><br>
-  <h2>QUESTION : {{problem}} </h2><br><br>
+  <h2 id="title"><span>Title : </span>{{title}}</h2><br>
+  <h2 id="question"><span>Question : </span>{{problem}} </h2><br><br>
   <ul id="topiclist">
       <li name="mcq" value="A" id="{{title}}"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{ca}}</li>
       <li name="mcq" value="B" id="{{title}}"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw1}}</li>

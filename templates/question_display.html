@@ -6,7 +6,7 @@
       
       <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	  <link rel="stylesheet" type="text/css" href="../static_dir/css/style.css">
+	  <link rel="stylesheet" type="text/css" href="../static_dir/css/question_display.css">
 
 	  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -35,30 +35,23 @@
 
 
 
+<div id="box">
+  <h2 id="title"><span>Title : </span>{{title}}</h2><br>
+  <h2 id="question"><span>Question : </span>{{problem}} </h2><br><br>
+  <ul id="topiclist">
+      <li name="mcq" value="A" id="{{title}}"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{ca}}</li>
+      <li name="mcq" value="B" id="{{title}}"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw1}}</li>
+      <li name="mcq" value="C" id="{{title}}"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw2}}</li>
+      <li name="mcq" value="D" id="{{title}}"><span><i class="fa fa-check-square" style=" vertical-align: middle;"></i></span>{{cw3}}</li>
 
-	<div id="box">
-		<div class="container">
-		  <h1>{{problem}}</h1>
-		  <br/>
-		  	<h2>
+  </ul>
+  <br><br>
+  <div class="box exp">
+    <h3 id="right"><strong>Correct Answer: <strong></h3>
+    <h3>Explanation:<br>Since A is the correct answer hence your answer is wrong</h3>
+  </div>
 
-			    <input type="radio" id="Fastlearning" name="question1">
-			       <label for="Fastlearning">{{ca}}</label>
-			       <br/>
-			    <input type="radio"  name="question1">
-			       <label>{{cw1}}</label>
-			       <br/>
-			    <input type="radio" name="question1">
-			       <label>{{cw2}}</label>
-			       <br/>
-			    <input type="radio" name="question1">
-			     <label>{{cw3}}</label>
-		    
-		 </h2>
-		</div>
-	</div>
-
-
+ </div>
 
 
 </body>
