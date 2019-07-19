@@ -170,7 +170,7 @@ def fun_cpost(variable):
 		cur.execute("SELECT course_id FROM course WHERE course_name= (?)",[c_name])
 		cid= (cur.fetchone()[0])
 		cur=con.cursor()
-		cur.execute("INSERT INTO problem (title,problem,canswer,wanswer1,wanswer2,wanswer3,course_id,correct_opt,explanation) VALUES (?,?,?,?,?,?,?)",(title,problem,canswer,wanswer1,wanswer2,wanswer3,cid,correct_opt,explanation))
+		cur.execute("INSERT INTO problem (title,problem,canswer,wanswer1,wanswer2,wanswer3,course_id,correct_opt,explanation) VALUES (?,?,?,?,?,?,?,?,?)",[title,problem,canswer,wanswer1,wanswer2,wanswer3,cid,correct_opt,explanation])
 		con.commit()
 	con.close()
 	s={}
